@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="/fabflix/style.css">
+<script type="text/javascript">
+function displayCheckBoxes(){
+	space = document.getElementById("checkboxes");
+	var genres = ["Action", "Adventure", "Comedy", "Drama", "Film-noir", "Horror", "Romance", "Sci-Fi"];
+	var count = 0;
+	for (var i = 0; i < genres.length; i++) {
+		if (count == 4) {
+			space.innerHTML += "<br>";
+		}
+		space.innerHTML += "<input type=\"checkbox\" name=\"genre\" value=\"" + genres[i] + "\">";
+		space.innerHTML += genres[i] + "</input>";
+		count+=1;
+
+	}
+
+}
+
+</script>
+<title>Fabflix | Search</title>
+</head>
+<div id="pageHeader"><a href="/fabflix/main">FabFlix</a></div>
+<div id="logout"><a href="/fabflix/invalidate">Log out</a></div>
+<body onload="displayCheckBoxes()">
+	<form action ="/fabflix/Browse" method = "get">
+
+	<div class="bodyContainer2">
+	<div id="checkout"><a href="/fabflix/cart.jsp">Checkout</a></div>
+	
+
+
+		<br>
+<input type="hidden" name="action" value="search">
+<input type="hidden" name="pagenum" value="1">
+<input type="hidden" name="order" value="asc">
+<input type="hidden" name="show" value="10">
+<input type="hidden" name="sort" value="title">
+
+<h4>Title<input type="text" name="title"></input></h4>
+<h4>Genres</h4>
+<div id="checkboxes"></div>
+<div id="year">
+	<h4>Year</h4>
+	<input type="text" name="y1">to<input type="text" name="y2"> 
+</div>
+<div id="director">
+	<h4>Director <input type="text" name="director"></input></h4>
+</div>
+<div>
+	<h4>Stars</h4>
+	<p>First Name <input type="text" name="firstName"></input></p>
+	<p>Last Name <input type="text" name="lastName"></input></p>
+</div>
+<input type="submit">
+</div>
+</form>
+</body>
+</html>
